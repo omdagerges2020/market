@@ -53,21 +53,6 @@ const Header = ({ cartProducts, handleChangeMode }) => {
 
   return (
     <div className="px-7 py-3 rounded-none bg-green-900 w-full  dark:bg-[#1d2029] bg-opacity-1">
-      {/* Top Social */}
-      <div className="flex justify-between text-white">
-        <div className="media flex gap-2 items-center">
-          <h1>Follow Us On</h1>
-          <FaFacebook />
-          <FaInstagram />
-        </div>
-        <div className="loginn flex gap-1 items-center">
-          <MdOutlineContactSupport />
-          <span>Support</span>|<span>Register</span>|<span>Log in</span>
-        </div>
-      </div>
-
-      {/* line between top social and second part */}
-      <hr className="mb-4" />
 
       {/* side menue and search input part */}
       <div className="items-center w-full flex gap-4">
@@ -302,6 +287,7 @@ const Header = ({ cartProducts, handleChangeMode }) => {
       <Collapse open={openNav}>
         <div className="main-nav flex items-center gap-5">
           <div className="flex flex-col w-[100%]">
+            {/* Search Input */}
             <div className="relative flex  gap-2 ">
               <Input
                 value={searchInput}
@@ -321,7 +307,8 @@ const Header = ({ cartProducts, handleChangeMode }) => {
                 </Button>
               </Link>
             </div>
-            <ul className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6 flex-none">
+            {/* Links */}
+            <ul className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6 flex-none h-[100px] overflow-y-scroll">
               {categories.slice(0, 8).map((cat, index) => (
                 <div key={index}>
                   <Typography
@@ -339,21 +326,21 @@ const Header = ({ cartProducts, handleChangeMode }) => {
                   </Typography>
                 </div>
               ))}
-
-              <Button
-                className="bg-transparent hover:shadow-none shadow-none text-[1.5em]"
-                onClick={() => handleChangeMode()}
-              >
-                {localStorage.theme === "light" ? <IoSunny /> : <FaMoon />}
-              </Button>
             </ul>
-            <div className="cart-icon relative mt-3">
+            {/* dark&light Mode && Cart */}
+            <div className="cart-icon relative mt-3 w-full flex justify-between items-center">
               <Link to="/cart">
                 <GiShoppingCart className="text-[2em] text-white font-bold" />
               </Link>
               <div className="absolute top-[-10px] left-[15px] w-[20px] h-[25px] bg-white p-1 rounded-full flex justify-center items-center">
                 <span className=" text-black">{cartProducts.length}</span>
               </div>
+              <Button
+                className="bg-transparent hover:shadow-none shadow-none text-[1.5em]"
+                onClick={() => handleChangeMode()}
+              >
+                {localStorage.theme === "light" ? <IoSunny /> : <FaMoon />}
+              </Button>
             </div>
           </div>
         </div>
