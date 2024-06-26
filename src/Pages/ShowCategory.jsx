@@ -35,12 +35,12 @@ const ShowCategory = () => {
       <h1 className="w-[100%] bg-[#ececec] dark:bg-[#20222f] p-4 text-2xl font-bold shadow-lg border-l-4	border-[#2ec745] dark:border-white text-[#9e9e9e]">
         SEE OUR <span className="uppercase">{categoryName}</span>
       </h1>
-      <div className="cards grid grid-cols-4 gap-x-5 gap-y-[5em] mt-[4em]">
+      <div className="cards justify-center grid xl:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 sm:grid-cols-2 xs:grid-cols-1 gap-x-5 gap-y-[5em] mt-[4em]">
         {/* Card */}
         {categoryProducts.map((product, index) => (
           <div
             key={index}
-            className="card w-[calc(100% / 4)] bg-base-100 shadow-xl rounded-b-md rounded-t-none relative dark:bg-[#20222f] "
+            className="card xl:w-[calc(100% / 4)] lg:w-[calc(100% / 4)] md:w-[calc(100% / 3)] bg-base-100 shadow-xl rounded-b-md rounded-t-none relative dark:bg-[#20222f] "
           >
             <figure className="shadow-md ">
               <img
