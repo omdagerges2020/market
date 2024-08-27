@@ -3,12 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { getSmartPhones } from "./../../ReduxSystem/Slices/smartPhonesSlice";
 import Loading from "./../../Loading";
 import PageNotFound from "../../PageNotFound";
+import LazyLoad from 'react-lazyload';
+
 
 const SeeOurSmartphones = () => {
   const { phonesProducts, loadingSmartPhones, errorSmartphones } = useSelector(
     (state) => state.smartPhonesProducts
   );
-    console.log(phonesProducts);
+    // console.log(phonesProducts);
 
 
   // Dispatching
@@ -37,7 +39,7 @@ const SeeOurSmartphones = () => {
       <div className="cards grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-x-5 gap-y-[5em] mt-[4em]">
         {/* Card */}
         {phonesProducts.map((product, index) => (
-          <div
+          <LazyLoad
             key={index}
             className="card dark:shadow-sm dark:shadow-white	dark:bg-[#20222f] w-[calc(100% / 4)] bg-base-100 shadow-xl rounded-b-md rounded-t-none relative"
           >
@@ -67,7 +69,7 @@ const SeeOurSmartphones = () => {
             <div className="title-sign absolute bottom-[90%] dark:bg-[#20222f] dark:border-0 left-[-1px] px-4 py-2 bg-[#2ec745] text-white font-bold">
               <h1>{product.category}</h1>
             </div>
-          </div>
+          </LazyLoad>
         ))}
       </div>
     </div>

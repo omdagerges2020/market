@@ -33,7 +33,7 @@ const categoryNameSlice = createSlice({
         builder.addCase(getCategoryNameProducts.fulfilled, (state, action)=>{
             state.loadingProducts = false;
             state.categoryProducts = action.payload.products
-            console.log(action.payload);
+            // console.log(action.payload);
         })
         builder.addCase(getCategoryNameProducts.rejected, (state, action)=>{
             state.loadingProducts = false;

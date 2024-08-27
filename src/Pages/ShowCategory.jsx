@@ -4,14 +4,15 @@ import { Link, useParams } from "react-router-dom";
 import { getCategoryNameProducts } from "../ReduxSystem/Slices/categoryNameSlice";
 import Loading from "./../Loading";
 import PageNotFound from "../PageNotFound";
+import LazyLoad from 'react-lazyload';
+
 
 
 const ShowCategory = () => {
   const { categoryProducts, loadingProducts, errorProducts } = useSelector(
     (state) => state.categoryNameProducts
   );
-
-  console.log(categoryProducts);
+  // console.log(categoryProducts);
 
   const { categoryName } = useParams();
 
@@ -38,7 +39,9 @@ const ShowCategory = () => {
       <div className="cards justify-center grid xl:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 sm:grid-cols-2 xs:grid-cols-1 gap-x-5 gap-y-[5em] mt-[4em]">
         {/* Card */}
         {categoryProducts.map((product, index) => (
-          <div
+          <LazyLoad
+            height={200} 
+            offset={100}
             key={index}
             className="card xl:w-[calc(100% / 4)] lg:w-[calc(100% / 4)] md:w-[calc(100% / 3)] bg-base-100 shadow-xl rounded-b-md rounded-t-none relative dark:bg-[#20222f] "
           >
@@ -80,7 +83,7 @@ const ShowCategory = () => {
             <div className="title-sign absolute bottom-[90%] left-[-1px] px-4 py-2 bg-[#2ec745] dark:bg-[#20222f] text-white font-bold">
               <h1>{product.category}</h1>
             </div>
-          </div>
+          </LazyLoad>
         ))}
       </div>
     </div>

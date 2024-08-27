@@ -35,7 +35,7 @@ const smartPhonesSlice = createSlice({
         builder.addCase(getSmartPhones.fulfilled, (state, action)=>{
             state.loadingSmartPhones = false;
             state.phonesProducts = action.payload.products
-            console.log(action.payload.products);
+            // console.log(action.payload.products);
         })
         builder.addCase(getSmartPhones.rejected, (state, action)=>{
             state.loadingSmartPhones = false;

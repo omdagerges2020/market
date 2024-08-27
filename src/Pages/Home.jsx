@@ -8,7 +8,9 @@ import SeeOurSkincare from './PagesHome/SeeOurSkincare'
 import SeeOurGroceries from './PagesHome/SeeOurGroceries'
 import SeeOurHomeDecoration from './PagesHome/SeeOurHomeDecoration'
 
+
 const Home = () => {
+
   return (
     <div className="dark:bg-[#1d2029] bg-white">
         <TopBackground/>

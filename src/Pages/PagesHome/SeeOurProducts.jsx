@@ -4,6 +4,8 @@ import { getAllProducts } from "../../ReduxSystem/Slices/allProductsSlice";
 import Loading from "./../../Loading";
 import { Link } from "react-router-dom";
 import PageNotFound from "../../PageNotFound";
+import LazyLoad from 'react-lazyload';
+
 
 const SeeOurProducts = () => {
   const { allProducts, loadingProducts, errorPage } = useSelector(
@@ -34,7 +36,9 @@ const SeeOurProducts = () => {
       <div className="cards grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-x-5 gap-y-[5em] mt-[4em]">
         {/* Card */}
         {allProducts.map((product, index) => (
-          <div
+          <LazyLoad
+            height={400}
+            offset={100}
             key={index}
             className="card dark:shadow-sm dark:shadow-white	dark:bg-[#20222f] w-[calc(100% / 4)] bg-base-100 shadow-xl rounded-b-md rounded-t-none relative "
           >
@@ -43,6 +47,7 @@ const SeeOurProducts = () => {
                 src={product.images[0]}
                 alt="Shoes"
                 style={{ height: "320px" }}
+                loading="lazy"
               />
             </figure>
             <div className="card-body flex flex-col items-center p-7">
@@ -76,7 +81,7 @@ const SeeOurProducts = () => {
             <div className="title-sign absolute dark:bg-[#20222f] bottom-[90%] left-[-1px] px-4 py-2 bg-[#2ec745] text-white font-bold">
               <h1>{product.category}</h1>
             </div>
-          </div>
+          </LazyLoad>
         ))}
       </div>
     </div>

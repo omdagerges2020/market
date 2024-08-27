@@ -3,7 +3,7 @@ import { MdDelete } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 const Cart = ({ cartProducts, setCartProducts }) => {
-  console.log(cartProducts);
+  // console.log(cartProducts);
 
   // Increment function
   const incrementProduct = (product) => {
@@ -35,7 +35,7 @@ const Cart = ({ cartProducts, setCartProducts }) => {
       return it.id !== product.id;
     });
     setCartProducts(deleteItems);
-    console.log("delete");
+    // console.log("delete");
   };
 
   // clear function

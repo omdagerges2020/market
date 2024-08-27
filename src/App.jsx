@@ -7,12 +7,17 @@ import Cart from "./Pages/Cart";
 import { useEffect, useState } from "react";
 import ShowCategory from "./Pages/ShowCategory";
 import Search from "./Pages/Search";
+import Login from "./Pages/Login";
+import Signup from "./Pages/Signup";
+import Profile from "./Pages/Profile";
+import Editprofile from "./Pages/Editprofile";
+import PageNotFound from "./PageNotFound";
 
 
 const App = () => {
   const [changeMode, setChangeMode] = useState(true)
   const [cartProducts, setCartProducts] = useState([]);
-  console.log(cartProducts);
+  // console.log(cartProducts);
 
   // Function add to cart
   const addToCart = (obj, itemsNumber) => {
@@ -78,6 +83,11 @@ const App = () => {
         <Route path="/cart" element={<Cart cartProducts={cartProducts} setCartProducts={setCartProducts}/>} />
         <Route path="/category/:categoryName" element={<ShowCategory/>} />
         <Route path="/search/:searchKey" element={<Search/>} />
+        <Route path="/login" element={<Login/>} />
+        <Route path="/signup" element={<Signup/>} />
+        <Route path="/profile/:userId" element={<Profile/>} />
+        <Route path="/editprofile/:userId" element={<Editprofile/>} />
+        <Route path="*" element={<PageNotFound/>} />
       </Routes>
 
       <Footer/>
